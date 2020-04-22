@@ -1,0 +1,12 @@
+{
+	"authors": [
+		"birthggd"
+	],
+	"copyright": "Copyright © 2020, birthggd",
+	"dependencies": {
+		"bindbc-glfw": "~>0.9.0"
+	},
+	"description": "A binding of Dear ImGui",
+	"license": "MIT",
+	"name": "dim"
+}
