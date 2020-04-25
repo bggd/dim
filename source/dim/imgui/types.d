@@ -32,6 +32,42 @@ enum IM_UNICODE_CODEPOINT_MAX = 0xFFFF;
 struct ImGuiContext;
 struct ImDrawData;
 
+enum ImGuiWindowFlags : int
+{
+    None = 0,
+    NoTitleBar = 1 << 0,
+    NoResize = 1 << 1,
+    NoMove = 1 << 2,
+    NoScrollbar = 1 << 3,
+    NoScrollWithMouse = 1 << 4,
+    NoCollapse = 1 << 5,
+    AlwaysAutoResize = 1 << 6,
+    NoBackground = 1 << 7,
+    NoSavedSettings = 1 << 8,
+    NoMouseInputs = 1 << 9,
+    MenuBar = 1 << 10,
+    HorizontalScrollbar = 1 << 11,
+    NoFocusOnAppearing = 1 << 12,
+    NoBringToFrontOnFocus = 1 << 13,
+    AlwaysVerticalScrollbar = 1 << 14,
+    AlwaysHorizontalScrollbar = 1 << 15,
+    AlwaysUseWindowPadding = 1 << 16,
+    NoNavInputs = 1 << 18,
+    NoNavFocus = 1 << 19,
+    UnsavedDocument = 1 << 20,
+    NoNav = ImGuiWindowFlags.NoNavInputs | ImGuiWindowFlags.NoNavFocus,
+    NoDecoration = ImGuiWindowFlags.NoTitleBar | ImGuiWindowFlags.NoResize
+        | ImGuiWindowFlags.NoScrollbar | ImGuiWindowFlags.NoCollapse,
+        NoInputs = ImGuiWindowFlags.NoMouseInputs | ImGuiWindowFlags.NoNavInputs | ImGuiWindowFlags.NoNavFocus,
+
+        NavFlattened = 1 << 23, // [BETA] Allow gamepad/keyboard navigation to cross over parent border to this child (only use on child that have no scrolling!)
+        ChildWindow = 1 << 24, // Don't use! For internal use by BeginChild()
+        Tooltip = 1 << 25, // Don't use! For internal use by BeginTooltip()
+        Popup = 1 << 26, // Don't use! For internal use by BeginPopup()
+        Modal = 1 << 27, // Don't use! For internal use by BeginPopupModal()
+        ChildMenu = 1 << 28 // Don't use! For internal use by BeginMenu()
+}
+
 enum ImGuiKey : int
 {
     Tab,
