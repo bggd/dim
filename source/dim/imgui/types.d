@@ -261,6 +261,7 @@ enum ImFontAtlasFlags : int
 extern (C++) struct ImFontAtlas
 {
     ImFont* AddFontDefault(const(ImFontConfig)* font_cfg = null);
+
     bool Locked;
     ImFontAtlasFlags Flags;
     ImTextureID TexID;
