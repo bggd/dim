@@ -2,10 +2,31 @@ module dim.imgui.types;
 
 import std.bitmanip;
 
+// https://github.com/Superbelko/imgui-d/blob/master/source/imgui/imgui_base.d
+// https://p0nce.github.io/d-idioms/#Rvalue-references:-Understanding-auto-ref-and-then-not-using-it
+mixin template RvalueRef()
+{
+    alias T = typeof(this);
+    static assert(is(T == struct));
+
+    @nogc @safe ref const(T) byRef() const pure nothrow return 
+    {
+        return this;
+    }
+}
+
 struct ImVec2
 {
     float x = 0.0f;
     float y = 0.0f;
+
+    this(float x, float y)
+    {
+        this.x = x;
+        this.y = y;
+    }
+
+    mixin RvalueRef;
 }
 
 struct ImVec4
@@ -14,6 +35,16 @@ struct ImVec4
     float y = 0.0f;
     float z = 0.0f;
     float w = 0.0f;
+
+    this(float x, float y, float z, float w)
+    {
+        this.x = x;
+        this.y = y;
+        this.z = z;
+        this.w = w;
+    }
+
+    mixin RvalueRef;
 }
 
 extern (C++) struct ImVector(T)
