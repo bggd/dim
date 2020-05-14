@@ -34,6 +34,8 @@ void Image(ImTextureID user_texture_id, ref const(ImVec2) size,
             1).byRef(), ref const(ImVec4) tint_col = ImVec4(1, 1, 1, 1).byRef(),
         ref const(ImVec4) border_col = ImVec4(0, 0, 0, 0).byRef());
 
+void SameLine(float offset_from_start_x = 0.0f, float spacing = -1.0f);
+
 private:
 
 bool Begin(const(char)* name, bool* p_open = null, int flags = 0);
