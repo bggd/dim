@@ -87,16 +87,15 @@ enum ImGuiWindowFlags : int
     NoNavFocus = 1 << 19,
     UnsavedDocument = 1 << 20,
     NoNav = ImGuiWindowFlags.NoNavInputs | ImGuiWindowFlags.NoNavFocus,
-    NoDecoration = ImGuiWindowFlags.NoTitleBar | ImGuiWindowFlags.NoResize
-        | ImGuiWindowFlags.NoScrollbar | ImGuiWindowFlags.NoCollapse,
-        NoInputs = ImGuiWindowFlags.NoMouseInputs | ImGuiWindowFlags.NoNavInputs | ImGuiWindowFlags.NoNavFocus,
+    NoDecoration = ImGuiWindowFlags.NoTitleBar | ImGuiWindowFlags.NoResize | ImGuiWindowFlags.NoScrollbar | ImGuiWindowFlags.NoCollapse,
+    NoInputs = ImGuiWindowFlags.NoMouseInputs | ImGuiWindowFlags.NoNavInputs | ImGuiWindowFlags.NoNavFocus,
 
-        NavFlattened = 1 << 23, // [BETA] Allow gamepad/keyboard navigation to cross over parent border to this child (only use on child that have no scrolling!)
-        ChildWindow = 1 << 24, // Don't use! For internal use by BeginChild()
-        Tooltip = 1 << 25, // Don't use! For internal use by BeginTooltip()
-        Popup = 1 << 26, // Don't use! For internal use by BeginPopup()
-        Modal = 1 << 27, // Don't use! For internal use by BeginPopupModal()
-        ChildMenu = 1 << 28 // Don't use! For internal use by BeginMenu()
+    NavFlattened = 1 << 23, // [BETA] Allow gamepad/keyboard navigation to cross over parent border to this child (only use on child that have no scrolling!)
+    ChildWindow = 1 << 24, // Don't use! For internal use by BeginChild()
+    Tooltip = 1 << 25, // Don't use! For internal use by BeginTooltip()
+    Popup = 1 << 26, // Don't use! For internal use by BeginPopup()
+    Modal = 1 << 27, // Don't use! For internal use by BeginPopupModal()
+    ChildMenu = 1 << 28 // Don't use! For internal use by BeginMenu()
 }
 
 enum ImGuiKey : int
@@ -138,7 +137,7 @@ enum ImGuiConfigFlags : int
 
     IsSRGB = 1 << 20,
     IsTouchScreen = 1 << 21
-};
+}
 
 enum ImGuiBackendFlags : int
 {
@@ -297,7 +296,7 @@ extern (C++) struct ImFontConfig
     // [Internal]
     char[40] Name;
     ImFont* DstFont;
-};
+}
 
 extern (C++) struct ImFontGlyph
 {

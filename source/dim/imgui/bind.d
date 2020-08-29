@@ -29,10 +29,7 @@ void StyleColorsLight(ImGuiStyle* dst = null);
 
 void End();
 
-void Image(ImTextureID user_texture_id, ref const(ImVec2) size,
-        ref const(ImVec2) uv0 = ImVec2(0, 0).byRef(), ref const(ImVec2) uv1 = ImVec2(1,
-            1).byRef(), ref const(ImVec4) tint_col = ImVec4(1, 1, 1, 1).byRef(),
-        ref const(ImVec4) border_col = ImVec4(0, 0, 0, 0).byRef());
+void Image(ImTextureID user_texture_id, ref const(ImVec2) size, ref const(ImVec2) uv0 = ImVec2(0, 0).byRef(), ref const(ImVec2) uv1 = ImVec2(1, 1).byRef(), ref const(ImVec4) tint_col = ImVec4(1, 1, 1, 1).byRef(), ref const(ImVec4) border_col = ImVec4(0, 0, 0, 0).byRef());
 
 void SameLine(float offset_from_start_x = 0.0f, float spacing = -1.0f);
 
