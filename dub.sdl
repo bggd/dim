@@ -18,4 +18,5 @@ configuration "glfw-ogl2" {
 
   sourceFiles "external/lib/glfw3.lib" platform="windows"
   sourceFiles "external/lib/imgui.lib" platform="windows"
+  libs "gdi32" platform="windows"
 }
