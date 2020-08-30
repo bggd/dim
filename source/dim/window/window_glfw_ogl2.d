@@ -5,64 +5,72 @@ import dim.window.config;
 import bindbc.glfw;
 import dim.imgui;
 
-class WindowGlfwOgl2 : WindowBase {
+class WindowGlfwOgl2 : WindowBase
+{
 
-  GLFWwindow* window;
-  bool closeRequest;
+    GLFWwindow* window;
+    bool closeRequest;
 
-  this(WindowConfig config) {
-    int status = glfwInit();
-    assert(status == GLFW_TRUE);
+    this(WindowConfig config)
+    {
+        int status = glfwInit();
+        assert(status == GLFW_TRUE);
 
-    this.window = glfwCreateWindow(config.width, config.height, config.title.ptr, null, null);
-    assert(this.window);
+        this.window = glfwCreateWindow(config.width, config.height, config.title.ptr, null, null);
+        assert(this.window);
 
-    glfwMakeContextCurrent(this.window);
-    glfwSwapInterval(1);
+        glfwMakeContextCurrent(this.window);
+        glfwSwapInterval(1);
 
-    ImGui.CreateContext();
+        ImGui.CreateContext();
 
-    ImGui_ImplGlfw_InitForOpenGL(this.window, true);
-    ImGui_ImplOpenGL2_Init();
-  }
+        ImGui_ImplGlfw_InitForOpenGL(this.window, true);
+        ImGui_ImplOpenGL2_Init();
+    }
 
-  ~this() {
-    ImGui_ImplOpenGL2_Shutdown();
-    ImGui_ImplGlfw_Shutdown();
-    ImGui.DestroyContext();
-    glfwTerminate();
-  }
+    ~this()
+    {
+        ImGui_ImplOpenGL2_Shutdown();
+        ImGui_ImplGlfw_Shutdown();
+        ImGui.DestroyContext();
+        glfwTerminate();
+    }
 
-  final bool isRunning() {
-    return cast(bool)!glfwWindowShouldClose(this.window);
-  }
+    final bool isRunning()
+    {
+        return cast(bool) !glfwWindowShouldClose(this.window);
+    }
 
-  final void update() {
-    glfwPollEvents();
+    final void update()
+    {
+        glfwPollEvents();
 
-    ImGui_ImplOpenGL2_NewFrame();
-    ImGui_ImplGlfw_NewFrame();
-    ImGui.NewFrame();
+        ImGui_ImplOpenGL2_NewFrame();
+        ImGui_ImplGlfw_NewFrame();
+        ImGui.NewFrame();
 
-    this.onUpdate();
+        this.onUpdate();
 
-    ImGui.Render();
-    ImGui_ImplOpenGL2_RenderDrawData(ImGui.GetDrawData());
+        ImGui.Render();
+        ImGui_ImplOpenGL2_RenderDrawData(ImGui.GetDrawData());
 
-    glfwSwapBuffers(this.window);
-  }
+        glfwSwapBuffers(this.window);
+    }
 
-  override void onUpdate() {}
+    override void onUpdate()
+    {
+    }
 
 }
 
-unittest {
-  WindowConfig config;
-  config.width = 640;
-  config.height = 480;
-  config.title = "dim window";
+unittest
+{
+    WindowConfig config;
+    config.width = 640;
+    config.height = 480;
+    config.title = "dim window";
 
-  auto window = new WindowGlfwOgl2(config);
-  assert(window.isRunning());
-  window.update();
+    auto window = new WindowGlfwOgl2(config);
+    assert(window.isRunning());
+    window.update();
 }

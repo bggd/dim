@@ -1,11 +1,12 @@
 module dim.window.base;
 
-interface WindowBase {
+interface WindowBase
+{
 
-  bool isRunning();
+    bool isRunning();
 
-  void update();
+    void update();
 
-  void onUpdate();
+    void onUpdate();
 
 }
