@@ -1,0 +1,16 @@
+name "dim"
+description "A binding of Dear ImGui"
+authors "birthggd"
+copyright "Copyright © 2020, birthggd"
+license "MIT"
+
+targetType "library"
+
+configuration "default" {
+}
+
+configuration "glfw-ogl2" {
+  versions "DIM_GLFW_OGL2"
+  dependency "bindbc-glfw" version="~>0.10.0"
+  versions "BindGLFW_Static"
+}

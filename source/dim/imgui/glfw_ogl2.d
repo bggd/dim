@@ -1,5 +1,7 @@
 module dim.imgui.glfw_ogl2;
 
+version(DIM_GLFW_OGL2):
+
 import bindbc.glfw;
 import dim.imgui.types;
 
