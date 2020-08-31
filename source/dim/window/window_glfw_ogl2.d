@@ -5,6 +5,14 @@ import dim.window.config;
 import bindbc.glfw;
 import dim.imgui;
 
+import core.stdc.stdio;
+
+extern (C) void onErrorCallback(int error, const(char)* description) nothrow
+{
+    fprintf(stderr, "Glfw Error: %d %s\n", error, description);
+}
+
+
 class WindowGlfwOgl2 : WindowBase
 {
 
@@ -13,6 +21,8 @@ class WindowGlfwOgl2 : WindowBase
 
     this(WindowConfig config)
     {
+        glfwSetErrorCallback(&onErrorCallback);
+
         int status = glfwInit();
         assert(status == GLFW_TRUE);
 
