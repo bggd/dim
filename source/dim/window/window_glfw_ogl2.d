@@ -1,5 +1,7 @@
 module dim.window.glfw_ogl2;
 
+version(DIM_GLFW_OGL2):
+
 import dim.window.base;
 import dim.window.config;
 import bindbc.glfw;
