@@ -1,8 +1,6 @@
 module dim.window.glfw_ogl2;
 
-version(DIM_GLFW_OGL2):
-
-import dim.window.base;
+version (DIM_GLFW_OGL2)  : import dim.window.base;
 import dim.window.config;
 import bindbc.glfw;
 import dim.imgui;
@@ -13,7 +11,6 @@ extern (C) void onErrorCallback(int error, const(char)* description) nothrow
 {
     fprintf(stderr, "Glfw Error: %d %s\n", error, description);
 }
-
 
 class WindowGlfwOgl2 : WindowBase
 {
