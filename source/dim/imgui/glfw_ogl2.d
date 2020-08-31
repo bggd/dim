@@ -1,6 +1,10 @@
 module dim.imgui.glfw_ogl2;
 
-version (DIM_GLFW_OGL2)  : import bindbc.glfw;
+// dfmt off
+version (DIM_GLFW_OGL2):
+// dfmt on
+
+import bindbc.glfw;
 import dim.imgui.types;
 
 extern (C++)

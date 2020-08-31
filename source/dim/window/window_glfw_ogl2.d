@@ -1,6 +1,10 @@
 module dim.window.glfw_ogl2;
 
-version (DIM_GLFW_OGL2)  : import dim.window.base;
+// dfmt off
+version (DIM_GLFW_OGL2):
+// dfmt on
+
+import dim.window.base;
 import dim.window.config;
 import bindbc.glfw;
 import dim.imgui;
