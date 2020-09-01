@@ -20,7 +20,6 @@ class WindowGlfwOgl2 : WindowBase
 {
 
     GLFWwindow* window;
-    bool closeRequest;
 
     this(WindowConfig config)
     {
