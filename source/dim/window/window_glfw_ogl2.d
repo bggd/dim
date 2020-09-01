@@ -48,7 +48,7 @@ class WindowGlfwOgl2 : WindowBase
         glfwTerminate();
     }
 
-    final bool isRunning()
+    final bool isOpen()
     {
         return cast(bool) !glfwWindowShouldClose(this.window);
     }
@@ -83,6 +83,6 @@ unittest
     config.title = "dim window";
 
     auto window = new WindowGlfwOgl2(config);
-    assert(window.isRunning());
+    assert(window.isOpen());
     window.update();
 }

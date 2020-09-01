@@ -3,7 +3,7 @@ module dim.window.base;
 interface WindowBase
 {
 
-    bool isRunning();
+    bool isOpen();
 
     void update();
 
