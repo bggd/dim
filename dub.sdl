@@ -14,9 +14,9 @@ configuration "glfw-ogl2" {
   dependency "bindbc-glfw" version="~>0.10.0"
   versions "BindGLFW_Static"
 
-  preBuildCommands "cmake -B build ." "cmake --build build --config RelWithDebInfo --target install"
+  preBuildCommands "cmake -B $PACKAGE_DIR/build ." "cmake --build $PACKAGE_DIR/build --config RelWithDebInfo --target install"
 
-  sourceFiles "external/lib/glfw3.lib" platform="windows"
-  sourceFiles "external/lib/imgui.lib" platform="windows"
+  sourceFiles "$PACKAGE_DIR/external/lib/glfw3.lib" platform="windows"
+  sourceFiles "$PACKAGE_DIR/external/lib/imgui.lib" platform="windows"
   libs "gdi32" "opengl32" platform="windows"
 }
